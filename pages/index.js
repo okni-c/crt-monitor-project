@@ -1,20 +1,35 @@
 import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import Header from '@components/header/Header'
+import Footer from '@components/footer/Footer'
+import Typewriter from 'typewriter-effect';
 
 export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Next.js Starter!</title>
+        <title>Dallas Yatsinko</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <Header title="Welcome to my app!" />
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
+
+        <div className="container">
+          <img src="/Background.png" className="macintosh" />
+          <img src="/scanlines.png" className="scanlines" />
+          <div className="scanline"></div>
+          <div className="screen">
+            <div className="screen-content">
+              <Typewriter
+                options={{
+                  strings: ['Hello world.', 'Welcome to my little computer.'],
+                  autoStart: true,
+                  deleteSpeed: '100'
+                }}
+              />
+            </div>
+          </div>
+        </div>
+
       </main>
 
       <Footer />
