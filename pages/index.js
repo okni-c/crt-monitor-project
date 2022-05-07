@@ -19,9 +19,13 @@ export default function Home() {
   const pageOpen = () => {
     setLoad('main-page scale-up-ver-top');
     setOpen({ opacity: '1' });
-    setBackground({ backgroundColor: '#FFF' })
+    setBackground({ backgroundColor: '#FFF' });
     console.log('Opening content!');
   };
+
+  const current = new Date();
+  const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
+  const time = `${current.getHours() - 12}:${current.getMinutes()}`;
 
   return (
     <div className="container">
@@ -34,7 +38,6 @@ export default function Home() {
 
         <div className="container">
           <img src="/Background2.png" className="macintosh" />
-          <img src="/scanlines.png" className="scanlines" />
           <div className="scanline"></div>
           <div className="screen" style={background}>
             <div className="screen-content" style={close}>
@@ -60,18 +63,28 @@ export default function Home() {
                   .callFunction(pageOpen);
               }} />
             </div>
+            <div className="os-header" style={open}>
+              <p className="os-header-text">🔎</p>
+              <p className="os-header-text">{date}</p>
+              <p className="os-header-text">{time}</p>
+            </div>
+            <img src="/taskbar.png" className="taskbar" style={open} />
             <div className={load} style={open}>
               <div className="page-header">
-                <h1>Welcome to my site.</h1>
+                <div className="left-title">
+                  <h1>Dallas Yatsinko</h1>
+                  <h2>Front End Developer</h2>
+                </div>
                 <img src="/spinearth.gif" className="globe" />
               </div>
-              
-              <div className="links">
-                <a className="btn" href="/">Projects</a>
-                <a className="btn" href="/">Jobs</a>
-                <a className="btn" href="/">About</a>
-                <a className="btn" href="/">Contact</a>
+              <h3>Welcome to my website.</h3>
+              <p>It's still in production, let me know if you encounter any bugs during your experience.</p>
+              <div className="links-btn">
+                <a href="https://github.com/okni-c" className="btn">GitHub</a>
+                <a href="https://www.linkedin.com/in/kdyatsinko/" className="btn">LinkedIn</a>
               </div>
+              <img src="/carmove.gif" className="car" />
+              
             </div>
           </div>
         </div>
