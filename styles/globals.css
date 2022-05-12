@@ -16,6 +16,13 @@ body {
   src: url(https://fonts.gstatic.com/s/vt323/v17/pxiKyp0ihIEF2isfFJU.woff2);
 }
 
+@font-face {
+  font-family: Sysfont;
+  src: url('https://cdn.discordapp.com/attachments/682457469632774173/973026886571687956/sysfont.woff') format('woff'), url('https://cdn.discordapp.com/attachments/682457469632774173/973027598869356584/sysfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 main {
   padding: 5rem 0;
   flex: 1;
@@ -72,19 +79,18 @@ code {
 }
 
 .screen {
-  width: 684px;
-  height: 558px;
+  width: 682px;
+  height: 569px;
   position: relative;
-  top: -64px;
+  top: -65px;
   left: 13px;
   right: 0;
   bottom: 0;
   z-index: 0;
-  border-radius: 30px;
   padding: 30px;
   background: #2f2f2f;
   transition: all 0.8s ease-in;
-  animation: textShadow 0.1s infinite;
+  /* animation: textShadow 0.1s infinite; */
 }
 
 .screen::before {
@@ -146,13 +152,14 @@ code {
 
 .main-page {
   transition: all 0.4s ease-in;
-  margin-left: -25px;
-  width: 675px;
+  margin-left: -27px;
+  width: 677px;
   overflow-y: auto;
   overflow-x: hidden;
-  height: 487px;
+  height: 503px;
   position: relative;
   top: -65px;
+  font-family: 'Sysfont';
 }
 
 .main-page h1 {
@@ -256,6 +263,174 @@ code {
   margin-top: -2px;
   padding: 0 22px 0 24px;
 }
+
+.taskbar-container {
+  height: 30px;
+  width: 677px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background-color: #c3c3c3;
+  z-index: 1;
+  top: 471px;
+  left: -27px;
+}
+
+.taskbar-btn {
+  margin: 2px;
+  margin-left: 4px;
+  border-color: #a3a3a3;
+  border-style: outset;
+  padding: 0px 3px 0 3px;
+  font-weight: bold;
+  background-color: #c3c3c3;
+  font-family: 'Sysfont';
+  font-size: 15px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: -151px;
+  left: 0px;
+  border-color: #bfbfbf;
+  border-style: outset;
+  background-color: #c3c3c3;
+  font-family: 'Sysfont';
+  font-size: 15px;
+  width: 135px;
+  z-index: 1;
+  transition-delay: 1s;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 10px;
+  text-decoration: none;
+  display: flex;
+  text-align: left;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.dropdown-content a img {
+  width: 25px;
+  height: auto;
+  margin-right: 14px;
+}
+
+.dropdown-content a:hover {
+  background-color: blue;
+  color: white;
+}
+
+.taskbar-btn:focus {
+  background-color: #DCDCDC;
+  border-style: inset;
+  transition: 0.1s ease-in;
+}
+
+.taskbar-btn:focus .dropdown-content {
+  display: block;
+}
+
+.taskbar-btn img {
+  width: auto;
+  height: 13px;
+  margin: 0px;
+  margin: 0px 2px -1px 2px;
+}
+
+.taskbar-window {
+  margin: 2px;
+  margin-left: 2px;
+  border-color: #a3a3a3;
+  border-style: inset;
+  padding: 0px 55px 0 3px;
+  font-weight: bold;
+  background-color: #DCDCDC;
+  font-family: 'Sysfont';
+  font-size: 15px;
+}
+
+.taskbar-clock {
+  border-style: inset;
+  padding: 0 10px 0 10px;
+  margin: 2px;
+  margin-left: auto;
+}
+
+.clock-text {
+  margin-top: 2px;
+  font-family: 'Sysfont';
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.browser-window {
+  background-color: silver;
+  width: 679px;
+  height: 27px;
+  border-top: 2px solid #efefef;
+  border-left: 2px solid #efefef;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+  margin: 0px;
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  z-index: 1;
+}
+
+.browser-top {
+  display: flex;
+  flex-direction: row-reverse;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 0, 145, 1) 21%, rgba(0, 40, 166, 1) 46%, rgba(0, 143, 172, 1) 100%);
+  height: 18px;
+  padding: 0.25em;
+  margin: 2px
+}
+
+.browser-top p {
+  font-size: 14px;
+  margin: -5px;
+  margin-right: auto;
+  padding-left: 6px;
+  color: white;
+}
+
+.browser-btn {
+  border-left: 2px solid #ededed;
+  border-top: 2px solid #ededed;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  padding: 0 0 0 0;
+  margin-bottom: -1px;
+  background-color: silver;
+  height: 17px;
+  margin-top: -3px;
+  width: 17px;
+}
+
+.browser-top>*+* {
+  margin-right: 2px;
+}
+
+.browser-btn:active {
+  transform: translate3d(0, 1px, 0);
+  border-top: 2px solid #000;
+  border-left: 2px solid #000;
+  border-right: 2px solid #efefef;
+  border-bottom: 2px solid #efefef;
+}
+
+.browser-btn img {
+  margin: 1px;
+}
+
+.browser-content {}
 
 /* ===== Scrollbar CSS ===== */
 /* Firefox */

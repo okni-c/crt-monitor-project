@@ -10,6 +10,7 @@ export default function Home() {
   const [open, setOpen] = useState({ opacity: '0' });
   const [background, setBackground] = useState();
   const [load, setLoad] = useState('main-page');
+  const [dropDown, setDropDown] = useState({ display: 'none' });
 
   const cmdClose = () => {
     setClose({ opacity: '0' });
@@ -23,9 +24,16 @@ export default function Home() {
     console.log('Opening content!');
   };
 
+  const enableDropDown = () => {
+    setDropDown({ display: 'block' });
+  }
+
+  const disableDropDown = () => {
+    setDropDown({ display: 'none' });
+  }
+
   const current = new Date();
-  const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
-  const time = `${current.getHours() - 12}:${current.getMinutes()}`;
+  const time = `${current.getHours()}:${current.getMinutes()}`;
 
   return (
     <div className="container">
@@ -37,7 +45,7 @@ export default function Home() {
       <main>
 
         <div className="container">
-          <img src="/Background2.png" className="macintosh" />
+          <img src="/background3.png" className="macintosh" />
           <div className="scanline"></div>
           <div className="screen" style={background}>
             <div className="screen-content" style={close}>
@@ -45,17 +53,17 @@ export default function Home() {
                 typewriter.start()
                   .pauseFor(1000)
                   .changeDelay(1)
-                  .typeString('Booting os 34.1...')
-                  .pauseFor(2500)
-                  .typeString('<br>Loading dom...')
-                  .pauseFor(1000)
-                  .typeString('<br>Loading assets...')
-                  .pauseFor(1600)
-                  .typeString('<br>Loading styles...')
-                  .pauseFor(1000)
-                  .typeString('<br>Loading bugs...')
-                  .pauseFor(0)
-                  .deleteAll(3)
+                  // .typeString('Booting os 34.1...')
+                  // .pauseFor(2500)
+                  // .typeString('<br>Loading dom...')
+                  // .pauseFor(1000)
+                  // .typeString('<br>Loading assets...')
+                  // .pauseFor(1600)
+                  // .typeString('<br>Loading styles...')
+                  // .pauseFor(1000)
+                  // .typeString('<br>Loading bugs...')
+                  // .pauseFor(0)
+                  // .deleteAll(3)
                   .typeString('starting...')
                   .pauseFor(500)
                   .callFunction(cmdClose)
@@ -63,13 +71,30 @@ export default function Home() {
                   .callFunction(pageOpen);
               }} />
             </div>
-            <div className="os-header" style={open}>
-              <p className="os-header-text">🔎</p>
-              <p className="os-header-text">{date}</p>
-              <p className="os-header-text">{time}</p>
+            <div class="browser-window" style={open}>
+              <div class="browser-top">
+                <button class="browser-btn"><img src="https://win98icons.alexmeub.com/images/close-icon.png" /></button>
+                <button class="browser-btn"><img src="https://win98icons.alexmeub.com/images/question-icon.png" /></button>
+                <p>Homepage.html</p>
+              </div>
+              <div class="browser-content">
+              {/* Nothing here yet */}
+              </div>
             </div>
-            <img src="/taskbar.png" className="taskbar" style={open} />
-            <div className={load} style={open}>
+            <div class="taskbar-container" style={open}>
+              <button class="taskbar-btn" onClick={enableDropDown}><img src="https://cdn.discordapp.com/attachments/682457469632774173/973025252634411058/unknown.png" />
+                <div class="dropdown-content" style={dropDown}>
+                  <a href="https://www.linkedin.com/in/kdyatsinko/"><img src="https://win98icons.alexmeub.com/icons/png/address_book_users.png" />LinkedIn</a>
+                  <a href="https://github.com/okni-c"><img src="https://win98icons.alexmeub.com/icons/png/console_prompt-0.png" />GitHub</a>
+                  <a href="https://soundcloud.com/okni-s"><img src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd-0.png" />Music</a>
+                </div>
+                Start</button>
+              <button class="taskbar-window">Homepage.html</button>
+              <div class="taskbar-clock">
+                <p class="clock-text">{time}</p>
+              </div>
+            </div>
+            <div className={load} style={open} onClick={disableDropDown}>
               <div className="page-header">
                 <div className="left-title">
                   <h1>Dallas Yatsinko</h1>
@@ -79,12 +104,12 @@ export default function Home() {
               </div>
               <h3>Welcome to my website.</h3>
               <p>It's still in production, let me know if you encounter any bugs during your experience.</p>
-              <div className="links-btn">
+              {/* <div className="links-btn">
                 <a href="https://github.com/okni-c" className="btn">GitHub</a>
                 <a href="https://www.linkedin.com/in/kdyatsinko/" className="btn">LinkedIn</a>
-              </div>
+              </div> */}
               <img src="/carmove.gif" className="car" />
-              
+
             </div>
           </div>
         </div>
